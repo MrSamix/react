@@ -1,0 +1,13 @@
+label{
+    color: wheat !important;
+}
+input, .ant-picker{
+    width: 100%;
+}
+#submit-button{
+    width: 100% !important;
+    margin-top: 10px;
+    background-color: #1890ff;
+    color: white;
+    border: none;
+}
