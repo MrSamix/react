@@ -1,0 +1,7 @@
+.content{
+    text-align: left;
+    margin: 20px;
+}
+.content::first-letter{
+    margin-left: 30px !important;
+}
