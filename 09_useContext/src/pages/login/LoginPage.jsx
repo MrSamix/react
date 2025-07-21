@@ -221,7 +221,7 @@ const LoginPage = () => {
                         >
                             Увійти
                         </Button>
-                        <Box sx={{ display: "flex", justifyContent: "center" }}>
+                        {/* <Box sx={{ display: "flex", justifyContent: "center" }}> # need client id
                             <GoogleLogin
                             	theme="outfiled"
                                 type="standart"
@@ -234,7 +234,7 @@ const LoginPage = () => {
                                 onSuccess={handleGoogleSuccess}
                                 onError={handleGoogleError}
                             />
-                        </Box>
+                        </Box> */}
                     </Box>
                 </Card>
             </SignInContainer>
