@@ -1,0 +1,5 @@
+.form-buttons {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 0px;
+}
