@@ -1,0 +1,32 @@
+.product-list-products {
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.product-list-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 410px;
+  justify-self: center;
+}
+
+.product-list-input,
+.product-list-select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.product-list-button {
+  padding: 12px;
+  font-size: 16px;
+  background-color: #43a446;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
