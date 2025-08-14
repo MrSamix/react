@@ -1,0 +1,5 @@
+.language-select{
+    display: flex;
+    align-items: center;
+    justify-self: end;
+}

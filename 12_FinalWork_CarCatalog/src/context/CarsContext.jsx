@@ -26,7 +26,7 @@ import { useReducer, createContext, useEffect } from "react";
 
 const INITIAL_STATE = {
    cars: [],
-   filter: {brand: null, year: null, priceRange: null, volume: null},
+   filter: {brand: null, model: null, year: null, priceRange: null, volume: null, color: null},
    language: 'en'
 };
 

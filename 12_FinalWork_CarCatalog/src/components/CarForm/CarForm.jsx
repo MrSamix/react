@@ -107,7 +107,7 @@ function CarForm({ activate = false, onClose, id, brand, model, year, volume, pr
             name="price"
             rules={[{ required: true, message: 'Please input the car price!' }]}
           >
-            <InputNumber min={0} />
+            <InputNumber min={0} suffix="$" />
           </Form.Item>
 
           <Form.Item

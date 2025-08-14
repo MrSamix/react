@@ -1,10 +1,16 @@
 .filter{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: 20px 0;
     border: 1px solid #ccc;
+    gap: 10px;
 }
 h3{
     margin: 15px;
 }
+/* .filter>div{
+    display: flex;
+    align-items: center;
+} */
