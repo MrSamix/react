@@ -1,5 +1,5 @@
 import { Button, Form, Input, InputNumber, Modal, Select } from 'antd';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import './CarForm.css';
 import { CarsContext } from '../../context/CarsContext';
 
@@ -21,27 +21,17 @@ function CarForm({ activate = false, onClose, id, brand, model, year, volume, pr
     { en: "Yellow", ua: "Жовтий" }
   ];
 
-
-  console.log("!!!!!!Color: ", color);
   const colorSelected = language === "en" ? color?.en : color?.ua || "";
-  console.log("!!!!!!ColorSelected: ", colorSelected);
 
-  const colorOptions = colors.map(color => ({
-    value: language === "en" ? color.en : color.ua,
-    label: language === "en" ? color.en : color.ua
+  const colorOptions = colors.map(c => ({
+    value: language === "en" ? c.en : c.ua,
+    label: language === "en" ? c.en : c.ua
   })).sort((a, b) => a.label.localeCompare(b.label));
 
   const handleOk = (values) => {
-    // values.color = values.color.value;
-    // const colorsUkr = colors.map(color => color.ua);
-    // const colorsEng = colors.map(color => color.en);
-    // if (colorsUkr.includes(values.color)) {
-    //   values.color = colors[colorsUkr.indexOf(values.color)];
-    // }
-    // else{
-    //   values.color = colors[colorsEng.indexOf(values.color)];
-    // }
-    values.color = colors.find(color => color.en === values.color.value || color.ua === values.color.value);
+    if (values.color) {
+      values.color = colors.find(c => c.en === values.color.value || c.ua === values.color.value);
+    }
     if (!editMode) addCar(values);
     else editCar(id, values);
     form.resetFields();
@@ -52,6 +42,21 @@ function CarForm({ activate = false, onClose, id, brand, model, year, volume, pr
     if (onClose) onClose();
     form.resetFields();
   };
+
+  // initialValues працює лише при першому маунті, тому потрібно викликати setFieldsValue.
+  useEffect(() => {
+    if (!activate) return; // Оновлюємо тільки коли модалка відкрита
+    const currentColor = colorSelected || undefined;
+    form.setFieldsValue({
+      brand,
+      model,
+      year,
+      volume,
+      price,
+      description,
+      color: currentColor ? { value: currentColor, key: currentColor, label: currentColor } : undefined
+    });
+  }, [activate, id, brand, model, year, volume, price, description, colorSelected, language, form]);
 
   return (
     <div>
@@ -69,7 +74,7 @@ function CarForm({ activate = false, onClose, id, brand, model, year, volume, pr
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           style={{ maxWidth: 600 }}
-          initialValues={{ remember: true, brand, model, year, volume, price, description }}
+          initialValues={{ remember: true }}
           onFinish={handleOk}
           autoComplete="off"
         >
@@ -89,7 +94,7 @@ function CarForm({ activate = false, onClose, id, brand, model, year, volume, pr
             <Input />
           </Form.Item>
 
-          <Form.Item
+            <Form.Item
             label={language === "en" ? "Year" : "Рік"}
             name="year"
             rules={[{ required: true, message: 'Please input the car year!' }]}
@@ -119,14 +124,12 @@ function CarForm({ activate = false, onClose, id, brand, model, year, volume, pr
             rules={[{ required: true, message: 'Please input the car color!' }]}
           >
             <Select
-            style={{ minWidth: '100px' }}
-            allowClear
-            value={colorSelected}
-            defaultValue={colorSelected}
-            id="color"
-            labelInValue
-            placeholder="Select a color"
-            options={colorOptions}
+              style={{ minWidth: '100px' }}
+              allowClear
+              id="color"
+              labelInValue
+              placeholder={language === 'en' ? 'Select a color' : 'Оберіть колір'}
+              options={colorOptions}
             ></Select>
           </Form.Item>
 

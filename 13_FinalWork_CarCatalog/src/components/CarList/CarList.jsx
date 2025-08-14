@@ -17,7 +17,7 @@ function CarList() {
                    (!filter.volume || car.volume === filter.volume);
         });
     }
-    console.log("huy",filterCars(cars, filter));
+    // console.log("Cars:",filterCars(cars, filter));
 
     return (
         <div className="car-list">
