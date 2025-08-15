@@ -1,27 +1,3 @@
-// import { createContext } from "react";
-
-// export const CarListContext = createContext();
-
-// export const CarListProvider = ({ children }) => {
-//     const [cars, setCars] = useState([]);
-//     const addCar = (car) => {
-//         setCars([...cars, car]);
-//     };
-//     const deleteCar = (id) => {
-//         setCars(cars.filter(car => car.id !== id));
-//     };
-//     const editCar = (id, updatedCar) => {
-//         setCars(cars.map(car => (car.id === id ? updatedCar : car)));
-//     };
-
-//     return (
-//         <CarListContext.Provider value={{ cars, addCar, deleteCar, editCar }}>
-//             {children}
-//         </CarListContext.Provider>
-//     );
-// };
-
-
 import { useReducer, createContext, useEffect } from "react";
 
 const INITIAL_STATE = {
