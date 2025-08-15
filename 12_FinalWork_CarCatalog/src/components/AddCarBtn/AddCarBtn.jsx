@@ -12,7 +12,7 @@ function AddCarBtn() {
     return (
         <>
             <Button type="primary" onClick={showModal}>{language === "en" ? "Add Car" : "Додати Авто"}</Button>
-            {/* Рендеримо форму завжди, модалка керується пропом open */}
+
             <CarForm activate={activate} onClose={() => setActivate(false)} />
         </>
     );

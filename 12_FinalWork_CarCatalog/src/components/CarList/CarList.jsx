@@ -27,8 +27,8 @@ function CarList() {
                    (!filter.volume || car.volume === filter.volume);
         });
     }
-    // console.log("Cars:",filterCars(cars, filter));
 
+    
     return (
         <div className="car-list">
             {filterCars(cars, filter).map(car => (

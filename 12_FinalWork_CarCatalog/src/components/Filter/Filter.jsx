@@ -15,32 +15,11 @@ function Filter() {
         value: color,
         label: color
     }));
-    console.log('====================================');
-    console.log(colors);
-    console.log('====================================');
-    // brands.unshift({ value: '', label: 'All Brands' }); // Add an option for all brands
-    // const brands = [
-    //     { value: '', label: 'All Brands' },
-    //     { value: 'Toyota', label: 'Toyota' },
-    //     { value: 'Honda', label: 'Honda' },
-    //     { value: 'Ford', label: 'Ford' },
-    //     { value: 'BMW', label: 'BMW' },
-    //     { value: 'Mercedes', label: 'Mercedes' },
-    // ];
     const handleChangeBrand = (value) => {
-        console.log(`selected ${value}`);
         changeFilter({ ...filter, brand: value });
     };
     const handleChangeColor = (value) => {
         const colorObj = cars.map(c => c.color).find(color => color.en === value || color.ua === value);
-        console.log('====================================');
-        console.log(colorObj);
-        console.log('====================================');
-        // if (colorObj === undefined) {
-        //     changeFilter({ color: null });
-        //     return;
-        // }
-        // // else if (value === )
         changeFilter({ ...filter, color: colorObj });
     };
     const handleChangeYear = (value) => {

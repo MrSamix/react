@@ -43,9 +43,8 @@ function CarForm({ activate = false, onClose, id, brand, model, year, volume, pr
     form.resetFields();
   };
 
-  // initialValues працює лише при першому маунті, тому потрібно викликати setFieldsValue.
   useEffect(() => {
-    if (!activate) return; // Оновлюємо тільки коли модалка відкрита
+    if (!activate) return;
     const currentColor = colorSelected || undefined;
     form.setFieldsValue({
       brand,
